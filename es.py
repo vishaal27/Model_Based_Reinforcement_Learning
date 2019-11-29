@@ -368,6 +368,8 @@ class PEPG:
                forget_best=True):            # don't keep the historical best solution
 
     self.num_params = num_params
+    print('thuglife')
+    print(self.num_params)
     self.sigma_init = sigma_init
     self.sigma_alpha = sigma_alpha
     self.sigma_decay = sigma_decay

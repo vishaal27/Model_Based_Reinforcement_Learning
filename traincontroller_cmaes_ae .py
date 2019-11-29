@@ -157,8 +157,7 @@ if exists(ctrl_file):
     print("Previous best was {}...".format(-cur_best))
 
 parameters = controller.parameters()
-es = cma.CMAEvolutionStrategy(flatten_parameters(parameters), 0.1,
-                              {'popsize': pop_size})
+es = cma.CMAEvolutionStrategy(flatten_parameters(parameters), 0.1, {'popsize': pop_size})
 
 epoch = 0
 log_step = 3

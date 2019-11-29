@@ -1,0 +1,29 @@
+/home/vishaal/.local/lib/python3.5/site-packages/torch/nn/functional.py:1006: UserWarning: nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.
+  warnings.warn("nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.")
+Process Process-12:
+Traceback (most recent call last):
+  File "/usr/lib/python3.5/multiprocessing/process.py", line 249, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.5/multiprocessing/process.py", line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File "traincontroller_pepg_vae.py", line 103, in slave_routine
+    r_queue.put((s_id, r_gen.rollout(params)))
+  File "/home/vishaal/Desktop/Projects/RL/world-models-master/utils/misc.py", line 192, in rollout
+    action, hidden = self.get_action_and_transition(obs, hidden)
+  File "/home/vishaal/Desktop/Projects/RL/world-models-master/utils/misc.py", line 160, in get_action_and_transition
+    _, latent_mu, _ = self.vae(obs)
+  File "/home/vishaal/.local/lib/python3.5/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/vishaal/Desktop/Projects/RL/world-models-master/models/vae.py", line 74, in forward
+    recon_x = self.decoder(z)
+  File "/home/vishaal/.local/lib/python3.5/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/vishaal/Desktop/Projects/RL/world-models-master/models/vae.py", line 24, in forward
+    x = F.relu(self.fc1(x))
+  File "/home/vishaal/.local/lib/python3.5/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/vishaal/.local/lib/python3.5/site-packages/torch/nn/modules/linear.py", line 55, in forward
+    return F.linear(input, self.weight, self.bias)
+  File "/home/vishaal/.local/lib/python3.5/site-packages/torch/nn/functional.py", line 1024, in linear
+    return torch.addmm(bias, input, weight.t())
+KeyboardInterrupt

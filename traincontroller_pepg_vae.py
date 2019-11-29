@@ -41,7 +41,7 @@ args = parser.parse_args()
 n_samples = args.n_samples
 pop_size = args.pop_size
 num_workers = min(args.max_workers, n_samples * pop_size)
-time_limit = 1000
+time_limit = 100
 
 # create tmp dir if non existent and clean it if existent
 tmp_dir = join(args.logdir, 'tmp')
@@ -83,8 +83,10 @@ def slave_routine(p_queue, r_queue, e_queue, p_index):
     :args p_index: the process index
     """
     # init routine
-    gpu = p_index % torch.cuda.device_count()
-    device = torch.device('cuda:{}'.format(gpu) if torch.cuda.is_available() else 'cpu')
+    # gpu = p_index % torch.cuda.device_count()
+    # device = torch.device('cuda:{}'.format(gpu) if torch.cuda.is_available() else 'cpu')
+
+    device = torch.device('cpu')
 
     # redirect streams
     sys.stdout = open(join(tmp_dir, str(getpid()) + '.out'), 'a')
@@ -157,21 +159,22 @@ if exists(ctrl_file):
     print("Previous best was {}...".format(-cur_best))
 
 parameters = controller.parameters()
-es = cma.CMAEvolutionStrategy(flatten_parameters(parameters), 0.1,
-                              {'popsize': pop_size})
-es = PEPG(flatten_parameters(parameters),                         # number of model parameters
+# es = cma.CMAEvolutionStrategy(flatten_parameters(parameters), 0.1,
+                              # {'popsize': pop_size})
+
+es = PEPG(len(flatten_parameters(parameters)),                         # number of model parameters
             sigma_init=0.5,                  # initial standard deviation
             learning_rate=0.1,               # learning rate for standard deviation
             learning_rate_decay=1.0,       # don't anneal the learning rate
             popsize=pop_size,             # population size
-            average_baseline=False,          # set baseline to average of batch
+            average_baseline=True,          # set baseline to average of batch
             weight_decay=0.00,            # weight decay coefficient
             rank_fitness=False,           # use rank rather than fitness numbers
             forget_best=False)
 
 epoch = 0
 log_step = 3
-while not es.stop():
+for i_ in range(100):
     if cur_best is not None and - cur_best > args.target_return:
         print("Already better than target, breaking...")
         break
@@ -212,7 +215,7 @@ while not es.stop():
                 {'epoch': epoch,
                  'reward': - cur_best,
                  'state_dict': controller.state_dict()},
-                join(ctrl_dir, 'best.tar'))
+                join(ctrl_dir, 'best_pepg.tar'))
         if - best > args.target_return:
             print("Terminating controller training with value {}...".format(best))
             break
