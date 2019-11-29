@@ -40,7 +40,7 @@ args = parser.parse_args()
 n_samples = args.n_samples
 pop_size = args.pop_size
 num_workers = min(args.max_workers, n_samples * pop_size)
-time_limit = 1000
+time_limit = 10
 
 # create tmp dir if non existent and clean it if existent
 tmp_dir = join(args.logdir, 'tmp')
@@ -82,8 +82,9 @@ def slave_routine(p_queue, r_queue, e_queue, p_index):
     :args p_index: the process index
     """
     # init routine
-    gpu = p_index % torch.cuda.device_count()
-    device = torch.device('cuda:{}'.format(gpu) if torch.cuda.is_available() else 'cpu')
+    # gpu = p_index % torch.cuda.device_count()
+    # device = torch.device('cuda:{}'.format(gpu) if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cpu')
 
     # redirect streams
     sys.stdout = open(join(tmp_dir, str(getpid()) + '.out'), 'a')
@@ -168,7 +169,6 @@ while not es.stop():
 
     r_list = [0] * pop_size  # result list
     solutions = es.ask()
-
     # push parameters to queue
     for s_id, s in enumerate(solutions):
         for _ in range(n_samples):
@@ -177,6 +177,7 @@ while not es.stop():
     # retrieve results
     if args.display:
         pbar = tqdm(total=pop_size * n_samples)
+
     for _ in range(pop_size * n_samples):
         while r_queue.empty():
             sleep(.1)
@@ -184,6 +185,7 @@ while not es.stop():
         r_list[r_s_id] += r / n_samples
         if args.display:
             pbar.update(1)
+
     if args.display:
         pbar.close()
 

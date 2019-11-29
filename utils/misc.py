@@ -5,6 +5,7 @@ import torch
 from torchvision import transforms
 import numpy as np
 from models import MDRNNCell, VAE, Controller
+from models.ae import AE
 import gym
 import gym.envs.box2d
 
