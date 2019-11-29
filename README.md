@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Pytorch implementation of the "WorldModels"
 
 Paper: Ha and Schmidhuber, "World Models", 2018. https://doi.org/10.5281/zenodo.1207631. For a quick summary of the paper and some additional experiments, visit the [github page](https://ctallec.github.io/world-models/).
@@ -82,3 +83,6 @@ all gpus specified by `CUDA_VISIBLE_DEVICES`.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+=======
+# Model_Based_Reinforcement_Learning
+>>>>>>> 524c034d1bd1ab887ec2d28cf8ab111731011bc2
