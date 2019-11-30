@@ -12,26 +12,26 @@ We extend the Model Based World Model RL algorithm by updating in the following 
 
 - To train the autoencoder and variational autoencoder, run the trainvae.py and trainae.py scripts.
 
-  - ```python trainvae.py```
+  - ```python trainvae.py --log_dir <directory>```
 
-  - ```python trainae.py```
+  - ```python trainae.py --log_dir <directory>```
 
 - To train MDN-RNN network using autoencoder and MDN-RNN using variational autoencoder, run the trainmdrnn.py and trainmdrnn_ae.py
 
-  - ```python trainmdrnn.py```
+  - ```python trainmdrnn.py --log_dir <directory>```
 
-  - ```python trainmdrnn_ae.py```
+  - ```python trainmdrnn_ae.py --log_dir <directory>```
 
 - To train the controller network using CMA-ES/PEPG with VAE/AE forward passes, train the corresponding files from: 
 traincontroller_cmaes_ae.py, traincontroller_cmaes_vae.py, traincontroller_pepg_ae.py, traincontroller_pepg_vae.py
 
-  - ```python traincontroller_cmaes_ae.py```
+  - ```python traincontroller_cmaes_ae.py --log_dir <directory> --n-samples <no. of samples> --pop-size <no. of threads> --target-return <expected cumulative reward> --display```
 
-  - ```python traincontroller_cmaes_vae.py```
+  - ```python traincontroller_cmaes_vae.py --log_dir <directory> --n-samples <no. of samples> --pop-size <no. of threads> --target-return <expected cumulative reward> --display```
 
-  - ```python traincontroller_pepg_ae.py```
+  - ```python traincontroller_pepg_ae.py --log_dir <directory> --n-samples <no. of samples> --pop-size <no. of threads> --target-return <expected cumulative reward> --display```
 
-  - ```python traincontroller_pepg_vae.py```
+  - ```python traincontroller_pepg_vae.py --log_dir <directory> --n-samples <no. of samples> --pop-size <no. of threads> --target-return <expected cumulative reward> --display```
 
 ## Analysis
 
