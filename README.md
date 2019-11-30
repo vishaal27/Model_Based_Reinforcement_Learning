@@ -57,6 +57,9 @@ Cumulative sum reward with AE latents:
 </p>
 
 ## Results
+
+We evaluate the results by measuring the cumulative rewards obtained over the test trajectories.
+
 Encoder Model/Parameter Search Method | Covariance Matrix Adaptation Evolution Strategy (CMA-ES) | Parameter-Exploring Policy Gradients (PEPG)
 ------------ | ------------- | -------------
 Variational Autoencoder | 74.67 +/- 10.12 | 60.94 +/- 6.17 
