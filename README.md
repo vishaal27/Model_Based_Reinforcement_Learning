@@ -23,13 +23,19 @@ VAE Training Loss:
 </p>
 
 AE Training Loss:
-![AE Training Loss](images/ae_loss.jpg)
+<p align="center">
+  <img width="460" height="300" src="images/ae_loss.jpg">
+</p>
 
 Cumulative sum reward with VAE latents:
-![VAE cum sum](images/vae_cum_sum.jpg)
+<p align="center">
+  <img width="460" height="300" src="images/vae_cum_sum.jpg">
+</p>
 
 Cumulative sum reward with AE latents:
-![AE cum sum](images/ae_cum_sum.jpg)
+<p align="center">
+  <img width="460" height="300" src="images/ae_cum_sum.jpg">
+</p>
 
 ## Results
 Encoder Model/Parameter Search Method | Covariance Matrix Adaptation Evolution Strategy (CMA-ES) | Parameter-Exploring Policy Gradients (PEPG)
