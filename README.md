@@ -16,7 +16,9 @@ We extend the Model Based World Model RL algorithm by updating in the following 
 
 ## Analysis
 
-- ![VAE Training Loss](images/vae_loss.jpg)
-- ![AE Training Loss](images/ae_loss.jpg)
+- VAE Training Loss
+![VAE Training Loss](images/vae_loss.jpg)
+- AE Training Loss
+![AE Training Loss](images/ae_loss.jpg)
 
 Note: Code adapted from [here](https://github.com/ctallec/world-models)
