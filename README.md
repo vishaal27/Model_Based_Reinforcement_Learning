@@ -16,9 +16,16 @@ We extend the Model Based World Model RL algorithm by updating in the following 
 
 ## Analysis
 
-- VAE Training Loss
+VAE Training Loss:
 ![VAE Training Loss](images/vae_loss.jpg)
-- AE Training Loss
+
+AE Training Loss:
 ![AE Training Loss](images/ae_loss.jpg)
+
+Cumulative sum reward with VAE latents:
+![VAE cum sum](images/vae_cum_sum.jpg)
+
+Cumulative sum reward with AE latents:
+![AE cum sum](images/ae_cum_sum.jpg)
 
 Note: Code adapted from [here](https://github.com/ctallec/world-models)
