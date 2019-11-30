@@ -28,4 +28,11 @@ Cumulative sum reward with VAE latents:
 Cumulative sum reward with AE latents:
 ![AE cum sum](images/ae_cum_sum.jpg)
 
+## Results
+Encoder Model/Parameter Search Method | Covariance Matrix Adaptation Evolution Strategy (CMA-ES) | Parameter-Exploring Policy Gradients (PEPG)
+------------ | ------------- | -------------
+Variational Autoencoder | 74.67 +/- 10.12 | 60.94 +/- 6.17 
+ Vanilla Autoencoder | 47.34 +/- 6.37 | 20.36 +/- 3.80
+
+
 Note: Code adapted from [here](https://github.com/ctallec/world-models)
