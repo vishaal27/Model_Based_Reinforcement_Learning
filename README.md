@@ -11,8 +11,27 @@ We extend the Model Based World Model RL algorithm by updating in the following 
 ## Running models
 
 - To train the autoencoder and variational autoencoder, run the trainvae.py and trainae.py scripts.
+
+  - ```python trainvae.py```
+
+  - ```python trainae.py```
+
 - To train MDN-RNN network using autoencoder and MDN-RNN using variational autoencoder, run the trainmdrnn.py and trainmdrnn_ae.py
-- To train the controller network using CMA-ES/PEPG with VAE/AE forward passes, train the corresponding files from: traincontroller_cmaes_ae.py, traincontroller_cmaes_vae.py, traincontroller_pepg_ae.py, traincontroller_pepg_vae.py
+
+  - ```python trainmdrnn.py```
+
+  - ```python trainmdrnn_ae.py```
+
+- To train the controller network using CMA-ES/PEPG with VAE/AE forward passes, train the corresponding files from: 
+traincontroller_cmaes_ae.py, traincontroller_cmaes_vae.py, traincontroller_pepg_ae.py, traincontroller_pepg_vae.py
+
+  - ```python traincontroller_cmaes_ae.py```
+
+  - ```python traincontroller_cmaes_vae.py```
+
+  - ```python traincontroller_pepg_ae.py```
+
+  - ```python traincontroller_pepg_vae.py```
 
 ## Analysis
 
